@@ -1,0 +1,54 @@
+{
+    "whitelist": {
+        "enabled": false,
+        "allowed": ["::1"]
+    },
+
+    "admin_page": {
+        "users_per_page": 15
+    },
+
+    "limits": {
+        "login": {
+            "min": 6,
+            "max": 16
+        },
+
+        "password": {
+            "min": 8,
+            "max": 32
+        }
+    },
+
+    "routing": {
+        "index": {
+            "path": "index.html"
+        },
+
+        "dataprocessing": {
+            "path": "dataprocessing.html"
+        },
+
+        "tos": {
+            "path": "tos.html"
+        },
+
+        "eula": {
+            "path": "eula.html"
+        },
+
+        "vk": {
+            "isURL": true,
+            "path": "https://vk.com/zetaproduct"
+        },
+
+        "discord": {
+            "isURL": true,
+            "path": "https://discord.gg/JArr9TUp4D"
+        },
+
+        "404": {
+            "path": "404.html"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "allowedEmails": ["inbox.ru", "rambler.ru", "ya.ru", "vk.com", "rambler.ua", "yandex.ru", "list.ru", "bk.ru", "mail.ru"],
+
+    "registration": {
+        "name": "Подтверждение регистрации",
+        "file": "confirm_email"
+    },
+
+    "buyitem": {
+        "name": "Покупка предмета",
+        "file": "buy_item"
+    },
+
+    "recovery": {
+        "name": "Восстановление пароля",
+        "file": "password_recovery"
+    }
+}

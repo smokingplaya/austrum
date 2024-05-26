@@ -1,0 +1,34 @@
+{
+  "name": "austrum",
+  "version": "1.0.1",
+  "description": "Сайт zetaproduct.ru",
+  "main": "server.ts",
+  "scripts": {
+    "start": "bun run server.ts",
+    "dev": "bun run --watch server.ts",
+    "dbmig": "bun misc/db_migrate.ts"
+  },
+  "type": "module",
+  "author": "smokingplaya",
+  "license": "ISC",
+  "dependencies": {
+    "@alex-kondakov/freekassa": "^0.0.3",
+    "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "crc": "^4.3.2",
+    "discord.js": "^14.14.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.13",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "yoomoney-sdk": "^1.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

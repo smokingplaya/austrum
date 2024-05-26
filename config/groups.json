@@ -1,0 +1,29 @@
+{
+    "default": "user",
+
+    "groups": {
+        "user": {
+            "niceName": "Пользователь",
+            "discordID": "1208369222175035392",
+            "flags": "u"
+        },
+
+        "youtube": {
+            "niceName": "Ютубер",
+            "discordID": "1152935618918223923",
+            "flags": "uy"
+        },
+
+        "manager": {
+            "niceName": "Менеджер",
+            "discordID": "1205867809025040384",
+            "flags": "upm"
+        },
+
+        "admin": {
+            "niceName": "Администратор",
+            "discordID": "1208378751931523092",
+            "flags": "*"
+        }
+    }
+}

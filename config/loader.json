@@ -1,0 +1,15 @@
+{
+    "version": "1.2.2",
+    "paths": {
+        "zip": "data/downloads/loader-zeta-1.2.2.zip",
+        "exe": "data/downloads/zeta-loader-1.2.2.exe"
+    },
+
+    "updater": {
+        "version": "1.0.1",
+        "paths": {
+            "zip": "data/downloads/updater-zeta-1.0.1.zip",
+            "exe": "data/downloads/zeta-updater-1.0.1.exe"
+        }
+    }
+}

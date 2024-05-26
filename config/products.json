@@ -1,0 +1,24 @@
+{
+    "visuals": {
+        "name": "Zeta Visuals (1.16.5 Forge)",
+        "types": {
+            "free": "free.dll",
+            "purchased": "purchased.dll"
+        },
+        "process": {
+            "name": "javaw",
+            "titles": ["Minecraft"]
+        }
+    },
+
+    "visuals_prime": {
+        "name": "Zeta Visuals Prime (1.16.5 Forge)",
+        "types": {
+            "purchased": "purchased.dll"
+        },
+        "process": {
+            "name": "javaw",
+            "titles": ["Minecraft"]
+        }
+    }
+}
