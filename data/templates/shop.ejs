@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/zetix.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Товары - 🦄 ZETA</title>
+    <link rel="canonical" href="https://zetaproduct.ru/shop.html">
+    <meta property="og:url" content="https://zetaproduct.ru/shop.html">
+    <meta name="twitter:description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zetaproduct.ru/assets/img/zetafavicon.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta property="og:image" content="https://zetaproduct.ru/assets/img/zetafavicon.png">
+    <meta name="twitter:title" content="ZETA PRODUCT">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/img/zetafavicon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/img/zetafavicon.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <nav class="navbar navbar-expand-md bg-body py-3">
+                <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
+                            style="background: url(assets/img/zetafavicon.png);background-size: contain;"></span><span
+                            style="font-family: Montserrat;font-weight: 600;">ZETA 💚</span></a><button
+                        data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span
+                            class="visually-hidden">Навигация</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-3">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link active" href="shop">Товары</a></li>
+                            <li class="nav-item"><a class="nav-link" href="discord">Дискорд</a></li>
+                            <li class="nav-item"><a class="nav-link" href="vk">ВК</a></li>
+                        </ul><a href="/register" class="btn btn-primary btn-sm" type="button"
+                            style="margin: 2px;background: linear-gradient(-17deg, var(--bs-btn-border-color), #a714cc 100%), #710e73;">Зарегистрироваться</a><a
+                            href="/login" class="btn btn-primary btn-sm" type="button"
+                            style="margin: 2px;background: var(--bs-primary);">Войти</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container py-4 py-xl-5">
+                <div class="row mb-5">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                        <h2 style="color: white;">Товары</h2>
+                        <p class="w-lg-50">Здесь вы можете приобрести наши услуги.</p>
+                    </div>
+                </div>
+                <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                    <%for (let item_name in i) {%>
+                        <%let item=i[item_name]%>
+                            <div class="modal fade" role="dialog" tabindex="-1" id=<%=("mod-"+item_name)%>
+                                style="backdrop-filter: blur(24px);">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Покупка предмета</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p style="font-size: 24px;">Покупка <%=item["name"]%>
+                                            </p>
+                                            <script>let <%=item_name%>_type = 3;</script>
+                                            <%if (item["prices"]) {%>
+                                                <p>Выберите срок<select id=<%=("mod-"+item_name+"-selector")%>
+                                                        class="form-select-sm" style="margin: 0px 0px 0px
+                                                        16px;border-style: none;">
+                                                        <optgroup label="Срок">
+                                                            <%for (let expiretime in item["prices"]) {%>
+                                                                <option value=<%=expiretime%> selected="">
+                                                                    <%=expiretime==0 ? "Навсегда" : (expiretime
+                                                                        + " месяц(-а)" ) %>
+                                                                </option>
+                                                                <%}%>
+                                                        </optgroup>
+                                                    </select></p>
+                                                    <script>let p = <%-JSON.stringify(item["prices"])%>; const e = document.getElementById("mod-<%=item_name%>-selector"); e.addEventListener("change", () => {<%=item_name%>_type = e.value; document.getElementById("mod-<%=item_name%>-price").innerText = p[<%=item_name %>_type] + "₽"; })</script>
+                                                    <%}%>
+                                                    <p>Есть промокод?<input class="form-control-sm" type="text"
+                                                            placeholder="Введите промокод"
+                                                            style="border-style: none;margin: 0px 0px 0px 16px;"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <p id=<%=("mod-"+item_name+"-price")%>>
+                                                <%=item["price"] ? item["price"] : item["prices"]["3"] ||
+                                                    item["prices"]["0"]%>₽
+                                            </p><button onclick="buyItem('<%=item_name%>', <%=item_name%>_type, 'zetaTop')"
+                                                class="btn btn-primary" type="button"
+                                                style="background: var(--bs-btn-border-color);">Купить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div <%if (item["popular"]) {%> class="card border-primary border-2 h-100"
+                                    style="background: linear-gradient(127deg, var(--bs-primary) 0%, #1f121f);"<%} else
+                                        {%>class="card h-100"<%}%>>
+                                            <div class="card-body d-flex flex-column justify-content-between p-4">
+                                                <%if (item["popular"]) {%><span
+                                                        class="badge bg-primary position-absolute top-0 end-0 rounded-bottom-left text-uppercase">
+                                                        ПОПУЛЯРНОЕ</span>
+                                                    <%}%>
+                                                        <div>
+                                                            <h6 class="text-uppercase text-muted">
+                                                                <%=item["name"]%>
+                                                            </h6>
+                                                            <h4 class="display-6 fw-bold"
+                                                                style="font-size: 28px; color:white;">
+                                                                <%=(item["prices"] ?
+                                                                    result=Object.values(item["prices"]).map(v=>
+                                                                    `${v}₽`).join(' / ') : item["price"] + "₽")%>
+                                                            </h4>
+                                                            <hr>
+                                                            <ul class="list-unstyled">
+                                                                <%for (let c in item["desc"]) {%>
+                                                                    <li class="d-flex mb-2"><span
+                                                                            class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2"
+                                                                            style="box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.34);"><svg
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                width="1em" height="1em"
+                                                                                fill="currentColor" viewBox="0 0 16 16"
+                                                                                class="bi bi-check-lg"
+                                                                                style="color: rgb(139,36,142);font-size: 15px;">
+                                                                                <path
+                                                                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022">
+                                                                                </path>
+                                                                            </svg></span><span
+                                                                            style="color:rgb(225,225,225);">
+                                                                            <%=item["desc"][c]%>
+                                                                        </span></li>
+                                                                    <%}%>
+                                                            </ul>
+                                                        </div><button data-bs-target=<%=("#mod-"+item_name)%>
+                                                            data-bs-toggle="modal" class="btn btn-primary d-block w-100"
+                                                            style="background:
+                                                            var(--bs-btn-border-color);">Приобрести</button>
+                                            </div>
+                                </div>
+                            </div>
+                            <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-4 footer">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-3">
+                    <div class="col">
+                        <p class="text-muted my-2">💖 сделано с любовью, Zeta.</p>
+                    </div>
+                    <div class="col">
+                        <ul class="list-inline my-2">
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em"
+                                        height="1em" fill="currentColor" style="width: 24px;height: 24px;">
+                                        <path
+                                            d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                        viewBox="0 0 16 16" class="bi bi-discord" style="width: 24px;height: 24px;">
+                                        <path
+                                            d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="list-inline my-2">
+                            <li class="list-inline-item"><a class="link-secondary" href="/tos">Правила Использования</a>
+                            </li>
+                            <li class="list-inline-item"><a class="link-secondary" href="/eula">Пользовательское
+                                    соглашение</a> <a class="link-secondary" href="dataprocessing"
+                                    title="Обработка персональных данных">ОПД</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function buyItem(i, t, p) {
+            const data = await fetch("/shop/buy", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    t: t,
+                    i: i,
+                    p: p
+                })
+            })
+
+            const content_type = data.headers.get("Content-Type");
+
+            // Ну да, такой вот костыль
+            if (content_type ? content_type.match("text/html") : false) {
+                document.open()
+                document.write(await data.text())
+                document.close()
+            }
+
+            if (data.status == 200 || !data.redirected)
+                document.location = await data.text();
+
+            if (data.redirected)
+                document.location = data.url;
+        }
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

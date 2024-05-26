@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/zetix.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Пользователи (стр <%=p%>) - 🦄 ZETA</title>
+    <link rel="canonical" href="https://zetaproduct.ru/shop.html">
+    <meta property="og:url" content="https://zetaproduct.ru/shop.html">
+    <meta name="twitter:description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zetaproduct.ru/assets/img/zetafavicon.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta property="og:image" content="https://zetaproduct.ru/assets/img/zetafavicon.png">
+    <meta name="twitter:title" content="ZETA PRODUCT">
+    <link rel="icon" type="image/png" sizes="256x256" href="../assets/img/zetafavicon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="../assets/img/zetafavicon.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="../manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <nav class="navbar navbar-expand-md bg-body py-3">
+                <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
+                            style="background: url(../assets/img/zetafavicon.png);background-size: contain;"></span><span
+                            style="font-family: Montserrat;font-weight: 600;">ZETA 💚</span></a><button
+                        data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span
+                            class="visually-hidden">Навигация</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-3">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link active">🤸‍♂️ 🦽 🏌️‍♂</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalGive" style="backdrop-filter: blur(24px);">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Выдача предмета</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p style="font-size: 24px;">Выберите предмет для выдачи</p>
+                            <p>Предмет<select id="item" class="form-select-sm" style="margin: 0px 0px 0px 16px;border-style: none;">
+                                <optgroup label="Предмет">
+                                    <%for (let i in it) {%>
+                                        <option value="12" selected="">
+                                            <%=it[i].name%>
+                                        </option>
+                                        <%}%>
+                                </optgroup>
+                            </select></p>
+                            <p>Срок<select id="expire" class="form-select-sm"
+                                    style="margin: 0px 0px 0px 16px;border-style: none;">
+                                    <optgroup label="Срок">
+                                        <option value="12" selected="">навсегда</option>
+                                        <option value="13">3 месяца</option>
+                                        <option value="14">1 месяц</option>
+                                    </optgroup>
+                                </select></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button onclick="" class="btn btn-primary" type="button"
+                                style="background: var(--bs-btn-border-color);">Выдать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding:30px;">
+                <%p=parseInt(p)%>
+                    <div class="list-group">
+                        <%for (let i in u) {%>
+                            <div type="button" class="list-group-item list-group-item-action"><img class="avatar-image"
+                                    src=<%=u[i].avatar%> />
+                                <%=u[i].username%><a class="right">
+                                        <%=u[i].rank%>
+                                            <button type="button" data-bs-toggle="tooltip" title="Выдать блокировку"
+                                                class="btn btn-secondary admin-button"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em"
+                                                    height="1em" fill="currentColor">
+                                                    <path
+                                                        d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z">
+                                                    </path>
+                                                </svg></button>
+                                            <button data-bs-target="#modalGive" data-bs-toggle="modal" type="button"
+                                                data-bs-toggle="tooltip" title="Выдать товар"
+                                                class="btn btn-secondary admin-button"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 -64 640 640"
+                                                    width="1em" height="1em" fill="currentColor">
+                                                    <path
+                                                        d="M36.8 192H603.2c20.3 0 36.8-16.5 36.8-36.8c0-7.3-2.2-14.4-6.2-20.4L558.2 21.4C549.3 8 534.4 0 518.3 0H121.7c-16 0-31 8-39.9 21.4L6.2 134.7c-4 6.1-6.2 13.2-6.2 20.4C0 175.5 16.5 192 36.8 192zM64 224V384v80c0 26.5 21.5 48 48 48H336c26.5 0 48-21.5 48-48V384 224H320V384H128V224H64zm448 0V480c0 17.7 14.3 32 32 32s32-14.3 32-32V224H512z">
+                                                    </path>
+                                                </svg></button>
+                                    </a>
+                            </div>
+                            <%}%>
+                    </div>
+
+                    <nav style="margin-top:1em;" aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                            <li <%if (p==1) {%> class="page-item disabled" <%} else {%> class="page-item" <%}%>>
+                                        <a class="page-link" href=<%=p-1%> tabindex="-1">‹</a>
+                            </li>
+
+                            <li <%if (p==1) {%> class="page-item disabled" <%} else {%> class="page-item" <%}%>>
+                                        <a class="page-link" href="1" tabindex="-1">«</a>
+                            </li>
+
+                            <%let result=[]; for (let i=0; i < 5; i++) { result.push(Math.max(p - 2, 1) + i); }%>
+
+                                <%for (let i in result) {%>
+                                    <%let page=result[i];%>
+                                        <li class="page-item"><a <%if (page==p) {%> class="page-link active" <%} else
+                                                    {%>
+                                                    <%}%> class="page-link" href=<%=page%>><%=page%></a></li>
+                                        <%}%>
+
+                                            <li <%if (p>= mp) {%> class="page-item disabled" <%} else {%>
+                                                    class="page-item" <%}%>>
+                                                        <a class="page-link" href=<%=mp%>>»</a>
+                                            </li>
+
+                                            <li <%if (p>= mp) {%> class="page-item disabled" <%} else {%>
+                                                    class="page-item" <%}%>>
+                                                        <a class="page-link" href=<%=p+1%>>›</a>
+                                            </li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+        <div class="text-center py-4 footer">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-3">
+                    <div class="col">
+                        <p class="text-muted my-2">💖 сделано с любовью, Zeta.</p>
+                    </div>
+                    <div class="col">
+                        <ul class="list-inline my-2">
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em"
+                                        height="1em" fill="currentColor" style="width: 24px;height: 24px;">
+                                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                        viewBox="0 0 16 16" class="bi bi-discord" style="width: 24px;height: 24px;">
+                                        <path
+                                            d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="list-inline my-2">
+                            <li class="list-inline-item"><a class="link-secondary" href="/tos">Правила Использования</a>
+                            </li>
+                            <li class="list-inline-item"><a class="link-secondary" href="/eula">Пользовательское
+                                    соглашение</a> <a class="link-secondary" href="dataprocessing"
+                                    title="Обработка персональных данных">ОПД</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+    <script src="../assets/js/tooltips.js"></script>
+</body>
+
+</html>
