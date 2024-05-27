@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Example</title>
+        <meta charset="utf-8">
+
+        <style>
+            .center {
+                background-color: rgb(30,30,30);
+                position: absolute;
+                display:grid;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #players {
+                display:grid;
+            }
+        </style>
+
+        <script>
+            function set() {
+                const parent = document.getElementById("players");
+                for (let item in essa) {
+                    let new_button = document.createElement("button");
+                    new_button.innerText = essa[item];
+                    parent.appendChild(new_button);
+                }
+            }
+
+            function clear() {
+                const parent = document.getElementById("players");
+                parent.innerHTML = ""
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="center">
+            <button onclick="set()">Нажми на меня</button><br>
+            <div id="players">
+            </div>
+        </div>
+    </body>
+</html>
